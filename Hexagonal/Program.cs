@@ -1,25 +1,46 @@
-var builder = WebApplication.CreateBuilder(args);
+using hexagonal.API.Modules.Common;
+using Serilog.Extensions.Logging;
 
-// Add services to the container.
+namespace hexagonal.API;
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+/// <summary>
+/// </summary>
+public static class Program
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    private static readonly LoggerProviderCollection Providers = new();
+
+    /// <summary>
+    /// </summary>
+    /// <param name="args"></param>
+    [Obsolete]
+    public static void Main(string[] args)
+    {
+        try
+        {
+            var hostBuilder = CreateHostBuilder(args).Build();
+            Log.Information("Starting up");
+            hostBuilder.Run();
+        }
+        catch (Exception ex)
+        {
+            Log.Fatal(ex, "Application start-up failed");
+        }
+        finally
+        {
+            Log.CloseAndFlush();
+        }
+    }
+
+
+    private static IHostBuilder CreateHostBuilder(string[] args)
+    {
+        return Host.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostContext, configApp) =>
+            {
+                configApp.AddCommandLine(args);
+                LoggingExtensions.CreateLog(Providers);
+            })
+            .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); })
+            .UseSerilog(providers: Providers);
+    }
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
