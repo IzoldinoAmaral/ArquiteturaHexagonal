@@ -4,14 +4,14 @@ namespace hexagonal.Application.Components.BookComponent.Contracts;
 
 public class BookDto : EntityDto
 {
-    public string? Livro { get; set; }
+    public string? Name { get; set; }
 
-    public string? Autor { get; set; }
+    public string? Author { get; set; }
 
-    public int? CategoryId { get; set; }
+    public Guid? CategoryId { get; set; }
     public string? CategoryName { get; set; }
 
-    public int? TotalPaginas { get; set; }
+    public int? TotalPages { get; set; }
 
     public bool? IsActive { get; set; }
 }

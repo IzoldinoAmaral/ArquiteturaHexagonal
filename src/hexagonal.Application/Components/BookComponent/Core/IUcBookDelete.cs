@@ -5,5 +5,5 @@ namespace hexagonal.Application.Components.BookComponent.Core;
 
 public interface IUcBookDelete
 {
-    Task<ISingleResult<Entity>> Execute(int id);
+    Task<ISingleResult<Entity>> Execute(Guid id);
 }

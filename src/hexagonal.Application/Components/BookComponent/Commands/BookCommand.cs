@@ -4,7 +4,7 @@ using hexagonal.Application.Bases.Interfaces;
 using hexagonal.Application.Components.BookComponent.Contracts;
 using hexagonal.Application.Components.BookComponent.Core;
 using hexagonal.Application.Components.BookComponent.Validations;
-using hexagonal.Domain;
+using hexagonal.Domain.Entities;
 
 namespace hexagonal.Application.Components.BookComponent.Commands;
 
@@ -55,7 +55,7 @@ public class BookCommand : IBookCommand
         return new SingleResultDto<EntityDto>(result);
     }
 
-    public async Task<ISingleResultDto<EntityDto>> Delete(int id)
+    public async Task<ISingleResultDto<EntityDto>> Delete(Guid id)
     {
         var result = await _deleteBook.Execute(id).ConfigureAwait(false);
         return new SingleResultDto<EntityDto>(result);

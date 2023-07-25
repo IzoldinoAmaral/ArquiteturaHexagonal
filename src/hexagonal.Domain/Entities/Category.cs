@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using hexagonal.Domain.Bases;
 
-namespace hexagonal.Domain;
+namespace hexagonal.Domain.Entities;
 
 [Table("cate_category")]
 public class Category : Entity

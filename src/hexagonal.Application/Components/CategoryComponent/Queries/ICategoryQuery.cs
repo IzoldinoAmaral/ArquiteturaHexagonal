@@ -8,5 +8,5 @@ public interface ICategoryQuery
 {
     Task<IPageResultDto<CategoryDto>> GetAll(PaginationQuery? paginationQuery = null);
     Task<IListResultDto<CategoryDto>> GetAllDropdown();
-    Task<ISingleResultDto<CategoryDto>> GetByIdDefault(int id);
+    Task<ISingleResultDto<CategoryDto>> GetByIdDefault(Guid id);
 }

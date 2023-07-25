@@ -1,6 +1,6 @@
 ﻿using hexagonal.Data.Bases;
 using hexagonal.Data.Extensions;
-using hexagonal.Domain;
+using hexagonal.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

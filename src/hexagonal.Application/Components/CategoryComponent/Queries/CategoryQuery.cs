@@ -4,7 +4,7 @@ using hexagonal.Application.Bases;
 using hexagonal.Application.Bases.Interfaces;
 using hexagonal.Application.Components.CategoryComponent.Contracts;
 using hexagonal.Application.Paginations;
-using hexagonal.Data;
+using hexagonal.Data.Repository;
 
 namespace hexagonal.Application.Components.CategoryComponent.Queries;
 
@@ -52,7 +52,7 @@ public class CategoryQuery : ICategoryQuery
         return new ListResultDto<CategoryDto>(list);
     }
 
-    public async Task<ISingleResultDto<CategoryDto>> GetByIdDefault(int id)
+    public async Task<ISingleResultDto<CategoryDto>> GetByIdDefault(Guid id)
     {
         var includes = new[] {"Category"};
         var entity = await _repository.GetById(id, includes).ConfigureAwait(false);

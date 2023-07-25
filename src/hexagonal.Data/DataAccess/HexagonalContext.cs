@@ -1,5 +1,5 @@
 using hexagonal.Data.Mappings;
-using hexagonal.Domain;
+using hexagonal.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace hexagonal.Data.DataAccess;
@@ -22,5 +22,5 @@ public class HexagonalContext : DbContext
         modelBuilder.ApplyConfiguration(new BookConfiguration());
         modelBuilder.ApplyConfiguration(new CategoryConfiguration());
         modelBuilder.ApplyConfiguration(new SystemUserConfiguration());
-    }    
+    }
 }

@@ -3,7 +3,7 @@ using AutoMapper.QueryableExtensions;
 using hexagonal.Application.Bases;
 using hexagonal.Application.Bases.Interfaces;
 using hexagonal.Application.Components.BookComponent.Contracts;
-using hexagonal.Data;
+using hexagonal.Data.Repository;
 
 namespace hexagonal.Application.Components.BookComponent.Queries;
 
@@ -27,7 +27,7 @@ public class BookQuery : IBookQuery
         return new ListResultDto<BookDto>(list);
     }
 
-    public async Task<ISingleResultDto<BookDto>> GetByIdDefault(int id)
+    public async Task<ISingleResultDto<BookDto>> GetByIdDefault(Guid id)
     {
         var includes = new[] {"Category"};
         var entity = await _repository.GetById(id, includes).ConfigureAwait(false);

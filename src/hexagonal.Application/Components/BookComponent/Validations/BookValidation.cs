@@ -7,30 +7,30 @@ namespace hexagonal.Application.Components.BookComponent.Validations;
 public class BookValidation<TDto> : DtoValidation<TDto>
     where TDto : BookDto
 {
-    protected void ValidateLivroe()
+    protected void ValidateNamee()
     {
-        RuleFor(x => x.Livro)
-            .NotEmpty().WithMessage("Nome do Livro is required")
-            .Length(0, 50).WithMessage("Nome do Livro must be up to 50 characters long");
+        RuleFor(x => x.Name)
+            .NotEmpty().WithMessage("Nome do Name is required")
+            .Length(0, 50).WithMessage("Nome do Name must be up to 50 characters long");
     }
 
-    protected void ValidateAutor()
+    protected void ValidateAuthor()
     {
-        RuleFor(x => x.Autor)
-            .NotEmpty().WithMessage("Autor do Livro is required")
-            .Length(0, 50).WithMessage("Autor do Livro must be up to 50 characters long");
+        RuleFor(x => x.Author)
+            .NotEmpty().WithMessage("Author do Name is required")
+            .Length(0, 50).WithMessage("Author do Name must be up to 50 characters long");
     }
 
-    protected void ValidateTotalPaginas()
+    protected void ValidateTotalPages()
     {
-        RuleFor(x => x.TotalPaginas)
+        RuleFor(x => x.TotalPages)
             .GreaterThan(0).WithMessage("Total de Páginas must be greater than 0");
     }
 
 
     protected void ValidateCategoryId()
     {
-        RuleFor(x => x.CategoryId).NotEqual(0).WithMessage("Category Id cannot be zero");
+        RuleFor(x => x.CategoryId).NotNull().WithMessage("Category Id cannot be null");
+        RuleFor(x => x.CategoryId).NotEqual(Guid.Empty).WithMessage("Category Id cannot be empty");
     }
-    
 }

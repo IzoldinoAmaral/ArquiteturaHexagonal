@@ -1,6 +1,6 @@
 using System.Reflection;
 using hexagonal.Data.Extensions;
-using hexagonal.Domain;
+using hexagonal.Domain.Entities;
 
 namespace hexagonal.Data.DataAccess;
 

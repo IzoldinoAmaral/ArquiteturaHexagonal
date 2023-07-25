@@ -1,9 +1,9 @@
 ﻿using hexagonal.Application.Bases;
 using hexagonal.Application.Bases.Interfaces;
 using hexagonal.Application.Components.BookComponent.Core.Validations;
-using hexagonal.Data;
-using hexagonal.Domain;
+using hexagonal.Data.Repository;
 using hexagonal.Domain.Bases;
+using hexagonal.Domain.Entities;
 
 namespace hexagonal.Application.Components.BookComponent.Core.UseCases;
 
@@ -18,9 +18,9 @@ public class UcBookDelete : UseCase, IUcBookDelete
         _repository = repository;
     }
 
-    public async Task<ISingleResult<Entity>> Execute(int id)
+    public async Task<ISingleResult<Entity>> Execute(Guid id)
     {
-        var entity = new Book { Id = id };
+        var entity = new Book {Id = id};
 
         var savedRecord = await _repository.GetById(entity.Id).ConfigureAwait(false);
 
@@ -35,7 +35,7 @@ public class UcBookDelete : UseCase, IUcBookDelete
         var validate = _bookDeleteValidation.Execute(savedRecord);
         if (!validate)
         {
-            return new ErrorResult<Entity>(false, "Livro esta ativo");
+            return new ErrorResult<Entity>(false, "Name esta ativo");
         }
 
         var bookId = savedRecord.Id;
