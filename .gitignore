@@ -16,6 +16,12 @@
 # Mono auto generated files
 mono_crash.*
 
+# Logs
+*.cache
+*.props
+log*.txt
+key*.xml
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
