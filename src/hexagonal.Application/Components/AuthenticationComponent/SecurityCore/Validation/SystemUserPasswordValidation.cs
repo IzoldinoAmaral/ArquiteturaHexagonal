@@ -1,7 +1,7 @@
 ﻿using hexagonal.Application.Bases;
 using hexagonal.Application.Bases.Interfaces;
-using hexagonal.Data;
-using hexagonal.Domain;
+using hexagonal.Data.Repository;
+using hexagonal.Domain.Entities;
 using hexagonal.Domain.Extensions;
 
 namespace hexagonal.Application.Components.AuthenticationComponent.SecurityCore.Validation;

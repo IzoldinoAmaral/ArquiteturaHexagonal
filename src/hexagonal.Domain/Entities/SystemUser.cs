@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using hexagonal.Domain.Bases;
 
-namespace hexagonal.Domain;
+namespace hexagonal.Domain.Entities;
 
 [Table("syus_system_user")]
 public class SystemUser : Entity
@@ -14,7 +14,7 @@ public class SystemUser : Entity
         Registration = "";
     }
 
-    public SystemUser(int id, string name, string email, string password, string registration,
+    public SystemUser(Guid id, string name, string email, string password, string registration,
         DateTime? registerDate)
     {
         Id = id;

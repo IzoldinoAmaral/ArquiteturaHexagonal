@@ -1,9 +1,9 @@
 ﻿using hexagonal.Application.Bases;
 using hexagonal.Application.Bases.Interfaces;
 using hexagonal.Application.Components.BookComponent.Core.Validations;
-using hexagonal.Data;
-using hexagonal.Domain;
+using hexagonal.Data.Repository;
 using hexagonal.Domain.Bases;
+using hexagonal.Domain.Entities;
 
 namespace hexagonal.Application.Components.BookComponent.Core.UseCases;
 
@@ -52,10 +52,10 @@ public class UcBookEdit : UseCase, IUcBookEdit
 
     private static void HydrateValues(Book target, Book source)
     {
-        target.Livro = source.Livro;
-        target.Autor = source.Autor;
+        target.Name = source.Name;
+        target.Author = source.Author;
         target.CategoryId = source.CategoryId;
-        target.TotalPaginas = source.TotalPaginas;
+        target.TotalPages = source.TotalPages;
         target.IsActive = source.IsActive;
     }
 }

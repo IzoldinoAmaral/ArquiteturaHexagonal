@@ -6,9 +6,9 @@ public class BookEditValidation : BookValidation<BookEditDto>
 {
     public BookEditValidation()
     {
-        ValidateLivroe();
-        ValidateAutor();
-        ValidateTotalPaginas();
+        ValidateNamee();
+        ValidateAuthor();
+        ValidateTotalPages();
         ValidateCategoryId();
     }
 }

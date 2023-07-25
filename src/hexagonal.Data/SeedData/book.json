@@ -1,26 +1,26 @@
 [
   {
-    "id": "1",
-    "Livro": "Livro A",
-    "Autor": "João",
-    "categoryId": "2",
-    "TotalPaginas": "123",
+    "id": "0ec86bd2-2322-4a88-982d-583d8cca4456",
+    "Name": "Name A",
+    "Author": "João",
+    "categoryId": "c0917436-8fba-4543-b098-796b45f45642",
+    "TotalPages": "123",
     "IsActive": "true"
   },
   {
-    "id": "2",
-    "Livro": "Livro B",
-    "Autor": "Manoel",
-    "categoryId": "1",
-    "TotalPaginas": "234",
+    "id": "326bd599-5a3f-471a-b16b-d5ccdd2a134b",
+    "Name": "Name B",
+    "Author": "Manoel",
+    "categoryId": "0cfe6569-bcd8-4959-b69a-8c5a4a75c776",
+    "TotalPages": "234",
     "IsActive": "false"
   },
   {
-    "id": "3",
-    "Livro": "Livro C",
-    "Autor": "Pedro",
-    "categoryId": "3",
-    "TotalPaginas": "345",
+    "id": "40b84cfe-0cf6-409f-ba6c-edccf3c26c7b",
+    "Name": "Name C",
+    "Author": "Pedro",
+    "categoryId": "6d2786ed-320b-44c2-8851-cc942d30ffed",
+    "TotalPages": "345",
     "IsActive": "true"
   }
 ]

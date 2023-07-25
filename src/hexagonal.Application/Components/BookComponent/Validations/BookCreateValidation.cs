@@ -6,9 +6,9 @@ public class BookCreateValidation : BookValidation<BookCreateDto>
 {
     public BookCreateValidation()
     {
-        ValidateLivroe();
-        ValidateAutor();
-        ValidateTotalPaginas();
+        ValidateNamee();
+        ValidateAuthor();
+        ValidateTotalPages();
         ValidateCategoryId();
     }
 }

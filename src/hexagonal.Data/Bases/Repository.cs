@@ -1,11 +1,12 @@
 ﻿using System.Data;
 using System.Linq.Expressions;
+using Comrade.Core.Bases.Interfaces;
 using hexagonal.Data.DataAccess;
 using hexagonal.Domain.Bases;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace hexagonal.Data.Bases;
+namespace Comrade.Persistence.Bases;
 
 public class Repository<TEntity> : IRepository<TEntity>
     where TEntity : Entity
@@ -80,7 +81,7 @@ public class Repository<TEntity> : IRepository<TEntity>
         _dbSet.UpdateRange(obj);
     }
 
-    public virtual void Remove(int id)
+    public virtual void Remove(Guid id)
     {
         var removedItem = _dbSet.Find(id);
         if (removedItem != null)
@@ -89,29 +90,29 @@ public class Repository<TEntity> : IRepository<TEntity>
         }
     }
 
-    public virtual void RemoveAll(IList<int>? ids)
+    public virtual void RemoveAll(IList<Guid>? ids)
     {
         var remove = _dbSet.Where(x => ids != null && ids.Contains(x.Id));
         _dbSet.RemoveRange(remove);
     }
 
-    public virtual async Task<TEntity?> GetById(int id)
+    public virtual async Task<TEntity?> GetById(Guid id)
     {
         return await GetById(id, null, includes: null).ConfigureAwait(false);
     }
 
-    public virtual async Task<TEntity?> GetById(int id, params string[] includes)
+    public virtual async Task<TEntity?> GetById(Guid id, params string[] includes)
     {
         return await GetById(id, null, includes).ConfigureAwait(false);
     }
 
-    public virtual async Task<TEntity?> GetById(int id,
+    public virtual async Task<TEntity?> GetById(Guid id,
         Expression<Func<TEntity, TEntity>> projection)
     {
         return await GetById(id, projection, null).ConfigureAwait(false);
     }
 
-    public virtual async Task<TEntity?> GetById(int id,
+    public virtual async Task<TEntity?> GetById(Guid id,
         Expression<Func<TEntity, TEntity>>? projection,
         params string[]? includes)
     {
@@ -142,7 +143,7 @@ public class Repository<TEntity> : IRepository<TEntity>
         return await query.FirstOrDefaultAsync().ConfigureAwait(false);
     }
 
-    public virtual async Task<bool> ValueExists(int id, string value)
+    public virtual async Task<bool> ValueExists(Guid id, string value)
     {
         var exists = await GetAll()
             .Where(p => p.Id != id
@@ -183,6 +184,7 @@ public class Repository<TEntity> : IRepository<TEntity>
     {
         return await _dbSet.SingleOrDefaultAsync(predicate).ConfigureAwait(false);
     }
+
 
     public void Dispose()
     {

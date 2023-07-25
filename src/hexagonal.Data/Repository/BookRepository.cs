@@ -1,8 +1,8 @@
-﻿using hexagonal.Data.Bases;
+﻿using Comrade.Persistence.Bases;
 using hexagonal.Data.DataAccess;
-using hexagonal.Domain;
+using hexagonal.Domain.Entities;
 
-namespace hexagonal.Data;
+namespace hexagonal.Data.Repository;
 
 public class BookRepository : Repository<Book>, IBookRepository
 {

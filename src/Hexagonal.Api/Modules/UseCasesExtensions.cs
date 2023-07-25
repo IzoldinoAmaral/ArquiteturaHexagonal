@@ -1,4 +1,3 @@
-using hexagonal.Application;
 using hexagonal.Application.Components.AuthenticationComponent.Commands;
 using hexagonal.Application.Components.AuthenticationComponent.SecurityCore;
 using hexagonal.Application.Components.AuthenticationComponent.SecurityCore.UseCases;
@@ -23,8 +22,6 @@ public static class UseCasesExtensions
     /// <param name="services"></param>
     public static IServiceCollection AddUseCases(this IServiceCollection services)
     {
-        services.AddScoped<IBookService, BookService>();
-
         #region Authentication
 
         // Application - Services

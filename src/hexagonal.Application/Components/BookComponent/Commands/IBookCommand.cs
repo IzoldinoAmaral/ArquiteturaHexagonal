@@ -8,5 +8,5 @@ public interface IBookCommand
 {
     Task<ISingleResultDto<EntityDto>> Create(BookCreateDto dto);
     Task<ISingleResultDto<EntityDto>> Edit(BookEditDto dto);
-    Task<ISingleResultDto<EntityDto>> Delete(int id);
+    Task<ISingleResultDto<EntityDto>> Delete(Guid id);
 }

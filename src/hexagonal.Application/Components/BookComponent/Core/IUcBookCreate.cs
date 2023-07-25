@@ -1,6 +1,6 @@
 ﻿using hexagonal.Application.Bases.Interfaces;
-using hexagonal.Domain;
 using hexagonal.Domain.Bases;
+using hexagonal.Domain.Entities;
 
 namespace hexagonal.Application.Components.BookComponent.Core;
 

@@ -1,4 +1,4 @@
-﻿using hexagonal.Domain;
+﻿using hexagonal.Domain.Entities;
 
 namespace hexagonal.Application.Components.BookComponent.Core.Validations;
 

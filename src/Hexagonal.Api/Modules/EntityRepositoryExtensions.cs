@@ -1,4 +1,4 @@
-using hexagonal.Data;
+using hexagonal.Data.Repository;
 
 namespace hexagonal.API.Modules;
 

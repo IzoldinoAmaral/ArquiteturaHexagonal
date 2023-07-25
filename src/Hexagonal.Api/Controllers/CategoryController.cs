@@ -61,9 +61,9 @@ public class CategoryController : ControllerBase
     ///     Get an category details.
     /// </summary>
     /// <param name="categoryId"></param>
-    [HttpGet("get-by-id/{categoryId:int}")]
+    [HttpGet("get-by-id/{categoryId:Guid}")]
     [ApiConventionMethod(typeof(CustomApiConventions), nameof(CustomApiConventions.Find))]
-    public async Task<IActionResult> GetById([FromRoute] [Required] int categoryId)
+    public async Task<IActionResult> GetById([FromRoute] [Required] Guid categoryId)
     {
         try
         {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using hexagonal.Application.Components.BookComponent.Contracts;
 using hexagonal.Application.Components.CategoryComponent.Contracts;
-using hexagonal.Domain;
+using hexagonal.Domain.Entities;
 
 namespace hexagonal.Application.Mappers;
 

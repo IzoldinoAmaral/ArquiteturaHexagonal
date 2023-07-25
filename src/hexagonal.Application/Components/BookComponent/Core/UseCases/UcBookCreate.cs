@@ -1,9 +1,9 @@
 ﻿using hexagonal.Application.Bases;
 using hexagonal.Application.Bases.Interfaces;
 using hexagonal.Application.Components.BookComponent.Core.Validations;
-using hexagonal.Data;
-using hexagonal.Domain;
+using hexagonal.Data.Repository;
 using hexagonal.Domain.Bases;
+using hexagonal.Domain.Entities;
 
 namespace hexagonal.Application.Components.BookComponent.Core.UseCases;
 
